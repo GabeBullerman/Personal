@@ -1,38 +1,177 @@
-header{
+header {
     background-color: #000;
     color: #fff;
     padding: 10px 0;
 }
 
-nav ul{
+nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
 }
 
-nav li{
+nav li {
     margin: 0 20px;
 }
 
-nav a{
+nav a {
     text-decoration: none;
     color: #fff;
 }
 
-body{
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f0f0f0; /* Greyish background color */
 }
 
-img{
+img {
     max-width: 100%;
 }
 
-footer{
+footer {
     text-align: center;
     padding: 20px;
     background-color: #000;
     color: #fff;
 }
 
+.container {
+    max-width: 1200px; /* Increased max-width */
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.project {
+    margin-bottom: 40px; /* Increased space between projects */
+    border: 6px solid #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.about-text {
+    max-width: 600px;
+}
+
+.about-text h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.about-text p .light-text {
+    font-weight: 300; /* Lighter font weight */
+    font-style: italic; /* Optional: to make it look thinner */
+}
+
+.skills-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.skills-list li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.text-box {
+    background: linear-gradient(to bottom, white, black); /* Gradient background */
+    color: transparent; /* Make text transparent to apply gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.text-box h5, .text-box p {
+    background: linear-gradient(to top, black, white); /* Reverse gradient for text */
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.full-screen-section {
+    background-color: white;
+    color: black; /* Change to red */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0; /* Remove any extra margin */
+    padding: 65px 0; /* Add padding for spacing */
+}
+
+nav a {
+    text-decoration: none;
+    color: white; 
+}
+
+.inverse-section {
+    background-color: black; /* Change background to red */
+    color: white; /* Change text to black */
+    padding: 40px 0; /* Add padding for spacing */
+}
+
+.hero--section--title {
+    font-size: 2em;
+    color: black; /* Ensure the typing effect uses the same color as the font */
+}
+
+.typed-cursor--blink {
+    font-weight: 100;
+    font-size: 1.25em;
+    color: black; /* Ensure the cursor uses the same color as the font */
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.profile-photo {
+    width: 300px; /* Increase the width */
+    height: 300px; /* Increase the height */
+    border-radius: 50%; /* Make the image circular */
+    margin-right: 80px; /* Add some space to the right */
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 20px;
+}
+
+.skills-container .skills {
+    margin-bottom: 40px; /* Increased space between sections */
+    border: 6px solid #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure it spans the full width */
+}

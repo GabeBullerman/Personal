@@ -4,65 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <style>
-    .container {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 40px;
-    }
-    .project {
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        padding: 20px;
-    }
-    </style>
-
     <title>Gabriel Bullerman</title>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#About-Me">About Me</a></li>
+                <li><a href="#Skills">Technical Skills</a></li>
+                <li><a href="#Experience">Experience</a></li>
+                <li><a href="#Projects">Projects</a></li>
+                <li><a href="#Contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="about">
-        <div class="container">
-            <img src="./me.jpg" alt="Profile Photo" width="200px" height="250px">
-            <h1>Gabriel John Bullerman</h1>
-            <p style="font-family: 'Courier New', Courier, monospace; color: black">Software Engineer</p>
-            <p>I am an undergraduate Computer Science major at Iowa State University. I am currently enrolled in a web design class.</p>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class ="projects">
-                <img src="./MusiQuest Logo.png" alt="Project 1" height="200" width="200">
-                <h3>Project 1</h3>
-                <p>My first project is an android application created using Java. The project consists of multiple activity pages within the app, and several operations communicating with the server and database which was created by my team and I. MusiQuest is an application intended for use of those teaching, or learning music theory in the form of a quiz-style game. MusiQuest has multiple WebSocket features such as a live global chat, friends list, and a global leaderboard per level.</p>
+    <section id="About-Me" class="full-screen-section">
+        <div class="container about-container">
+            <img src="./me.jpg" alt="Profile Photo" class="profile-photo">
+            <div class="about-text">
+                <h1>Gabriel John Bullerman</h1>
+                <h1 class="hero--section--title">
+                    <span></span>
+                    <span class="typed-cursor typed-cursor--blink" aria-hidden="true">|</span>
+                </h1>
+                <p>Undergraduate Computer Science major at Iowa State University. Interested in full-stack development, mobile apps, and webapps.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>You can reach me at any of the following:</p>
-            <ul>
-                <li>https://www.linkedin.com/in/gabe-bullerman/</li>
-                <li>gabebullerman1@gmail.com</li>
-                <li>(319)230-0474</li>
-            </ul>
+    <section id="Skills-Experience" class="full-screen-section">
+        <div class="container skills-container">
+            <div class="skills">
+                <h2>Technical Skills</h2>
+                <ul class="skills-list">
+                    <li><u>Languages:</u> Java, JavaScript, Python, C, C++, HTML, CSS, SQL</li>
+                    <li><u>Frameworks:</u> React, Node.js, Express, Bootstrap, Tailwind</li>
+                    <li><u>Developer Tools:</u> Git, GitHub, VSCode, IntelliJ, Eclipse, Android Studio</li>
+                    <li><u>Libraries:</u> React, Express, Socket.io, Axios, Mongoose, MongoDB</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
+
+    <section id="Projects" class="inverse-section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project">
+                <img src="./MusiQuest Logo.png" alt="Project 1" height="200" width="200">
+                <h3>Mobile App</h3>
+                <p>MusiQuest is an android application created using Java consisting of multiple activity pages, and several operations communicating with the server and database which was created by my team and I. MusiQuest is an application intended for use of those teaching, or learning music theory in the form of a quiz-style game. MusiQuest has multiple WebSocket features such as a global chat, friends list, and a global leaderboard per level. If you'd like to learn more about this project, click <em><a href="#">here.</a></em></p>
+            </div>
+            <div class="project">
+                <img src="https://via.placeholder.com/200" alt="Project 2" height="200" width="200">
+                <h3>Web App</h3>
+                <p>Lusiant is a webapp created using JavaScript, HTML and CSS. This site is a user-friendly, interactive ecommerce store for a clothing brand created by a childhood friend. This webapp is powered by a MongoDB database, and React for the frontend. Lusiant utilizes both tailwind and bootstrap CSS libraries for icons, and the building blocks of the catalog section of the site. This site also feature an administrator lock to shut down the site between productions of Lusiant products. Lusiant also contains a contact and payment form that uses autofill and saves information for repeat customers. If you'd like to learn more about this project, click <em><a href="#">here.</a></em></p>
+            </div>
+            <div class="project">
+                <img src="https://via.placeholder.com/200" alt="Project 3" height="200" width="200">
+                <h3>Placeholder Project</h3>
+                <p>This is a placeholder for a future project. Details about this project will be added soon. If you'd like to learn more about this project, click <em><a href="#">here.</a></em></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Contact" class="box">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>You can reach me at any of the following:</p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/gabe-bullerman/">LinkedIn</a></li>
+                <li><a href="mailto:gabebullerman1@gmail.com">gabebullerman1@gmail.com</a></li>
+                <li>(319)230-0474</li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="portfolio.js"></script>
+
     <footer>
-        <p>&copy; 2024 Gabriel Bullerman</p>
+        <div class="container">
+            <p>&copy; 2024 Gabriel Bullerman</p>
+        </div>
     </footer>
-    
 </body>
 </html>
