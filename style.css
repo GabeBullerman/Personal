@@ -1,3 +1,11 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
 header {
     background-color: #000;
     color: #fff;
@@ -8,6 +16,8 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
 nav li {
@@ -17,13 +27,6 @@ nav li {
 nav a {
     text-decoration: none;
     color: #fff;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff; /* Greyish background color */
 }
 
 img {
@@ -38,13 +41,13 @@ footer {
 }
 
 .container {
-    max-width: 1200px; /* Increased max-width */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 40px;
 }
 
 .project {
-    margin-bottom: 40px; /* Increased space between projects */
+    margin-bottom: 40px;
     border: 6px solid #fff;
     padding: 20px;
     display: flex;
@@ -80,66 +83,126 @@ footer {
 }
 
 .about-text p .light-text {
-    font-weight: 300; /* Lighter font weight */
-    font-style: italic; /* Optional: to make it look thinner */
+    font-weight: 300;
+    font-style: italic;
 }
 
-.skills-list {
-    list-style-type: disc;
-    padding-left: 20px;
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 50px;
+    row-gap: 20px;
+    text-align: center;
 }
 
-.skills-list li {
+.skills-container h2 {
+    grid-column: span 2;
+    margin-bottom: 20px;
+}
+
+.skills {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.skill-category {
     font-size: 1.2em;
     margin-bottom: 10px;
 }
 
-.text-box {
-    background: linear-gradient(to bottom, white, black); /* Gradient background */
-    color: transparent; /* Make text transparent to apply gradient */
-    background-clip: text;
-    -webkit-background-clip: text;
-    padding: 10px;
-    border-radius: 5px;
+/* Different colors in greyscale for each skill category */
+.skills:nth-child(2) .skill-category {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.text-box h5, .text-box p {
-    background: linear-gradient(to top, black, white); /* Reverse gradient for text */
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
+.skills:nth-child(3) .skill-category {
+    background-color: #666;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.full-screen-section {
-    background-color: white;
-    color: black; /* Change to red */
+.skills:nth-child(4) .skill-category {
+    background-color: #999;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.skills:nth-child(5) .skill-category {
+    background-color: #ccc;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+}
+
+.contact-container h2 {
+    margin-bottom: 0px;
+}
+
+.contact {
+    margin-bottom: 40px;
+    border: 6px solid #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+.contact li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0; /* Remove any extra margin */
-    padding: 65px 0; /* Add padding for spacing */
+    width: auto;
+    margin-left: -15px;
 }
 
-nav a {
+.contact li i {
+    margin-right: 10px;
+}
+
+.contact a {
     text-decoration: none;
-    color: white; 
+    color: inherit;
 }
 
 .inverse-section {
-    background-color: black; /* Change background to red */
-    color: white; /* Change text to black */
-    padding: 40px 0; /* Add padding for spacing */
+    background-color: black;
+    color: white;
+    padding: 40px 0;
 }
 
 .hero--section--title {
     font-size: 2em;
-    color: black; /* Ensure the typing effect uses the same color as the font */
+    color: black;
 }
 
 .typed-cursor--blink {
     font-weight: 100;
     font-size: 1.25em;
-    color: black; /* Ensure the cursor uses the same color as the font */
+    color: black;
     animation: blink 0.7s infinite;
 }
 
@@ -153,68 +216,76 @@ nav a {
 }
 
 .profile-photo {
-    width: 300px; /* Increase the width */
-    height: 300px; /* Increase the height */
-    border-radius: 50%; /* Make the image circular */
-    margin-right: 80px; /* Add some space to the right */
-    border: 4px solid, #000 ;
-    object-fit: cover; /* Ensure the image covers the entire area */
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-right: 80px;
+    border: 4px solid #000;
+    object-fit: cover;
 }
 
-.skills-container {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column layout */
-    gap: 20px;
-}
-
-.skills-container .skills {
-    margin-bottom: 40px; /* Increased space between sections */
-    border: 6px solid #fff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* Ensure it spans the full width */
-}
-
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column layout */
-    gap: 20px;
-    text-align: center; /* Center-align the text */
-}
-
-.contact-container h2 {
-    margin-bottom: 10px; /* Reduce space between h2 and ul */
-}
-
-.contact {
-    margin-bottom: 40px; /* Increased space between sections */
-    border: 6px solid #fff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* Ensure it spans the full width */
-    list-style: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
-}
-
-.contact li {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+.full-screen-section {
+    background-color: white;
+    color: black;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center-align the list items */
-    width: auto; /* Ensure the list items span the full width */
-    margin-left: -30px; /* Shift the list items to the left by the width of the icon */
+    justify-content: center;
+    margin-bottom: 0;
+    padding: 65px 0;
 }
 
-.contact li i {
-    margin-right: 10px; /* Add some space between the icon and the text */
-}
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.contact a {
-    text-decoration: none;
-    color: inherit; /* Ensure the link color matches the text color */
+    nav li {
+        margin: 10px 0;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-photo {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .skills-container h2 {
+        grid-column: span 1;
+    }
+
+    .skills {
+        height: auto;
+        padding: 20px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .project {
+        padding: 20px;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-text h1 {
+        font-size: 1.5em;
+    }
+
+    .about-text p {
+        font-size: 1em;
+    }
 }
