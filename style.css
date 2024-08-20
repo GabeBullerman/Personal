@@ -207,7 +207,7 @@ nav a {
     align-items: center;
     justify-content: center; /* Center-align the list items */
     width: auto; /* Ensure the list items span the full width */
-    margin-left: -15px; /* Shift the list items to the left by the width of the icon */
+    margin-left: -30px; /* Shift the list items to the left by the width of the icon */
 }
 
 .contact li i {
