@@ -23,7 +23,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0; /* Greyish background color */
+    background-color: #fff; /* Greyish background color */
 }
 
 img {
@@ -33,8 +33,8 @@ img {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #000;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
 }
 
 .container {
@@ -175,4 +175,40 @@ nav a {
     flex-direction: column;
     align-items: center;
     width: 100%; /* Ensure it spans the full width */
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 20px;
+    text-align: center; /* Center-align the text */
+}
+
+.contact-container h2 {
+    margin-bottom: 10px; /* Reduce space between h2 and ul */
+}
+
+.contact {
+    margin-bottom: 40px; /* Increased space between sections */
+    border: 6px solid #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure it spans the full width */
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+}
+
+.contact li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center-align the list items */
+    width: 100%; /* Ensure the list items span the full width */
+}
+
+.contact li i {
+    margin-right: 10px; /* Add some space between the icon and the text */
 }
