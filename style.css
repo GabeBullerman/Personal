@@ -206,9 +206,15 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center; /* Center-align the list items */
-    width: 100%; /* Ensure the list items span the full width */
+    width: auto; /* Ensure the list items span the full width */
+    margin-left: -15px; /* Shift the list items to the left by the width of the icon */
 }
 
 .contact li i {
     margin-right: 10px; /* Add some space between the icon and the text */
+}
+
+.contact a {
+    text-decoration: none;
+    color: inherit; /* Ensure the link color matches the text color */
 }
