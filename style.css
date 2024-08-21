@@ -66,6 +66,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 0px;
+    margin-bottom: -30px; /* Use negative margin to further decrease space below the about section */
 }
 
 .about-text {
@@ -73,7 +74,7 @@ footer {
 }
 
 .about-text h1 {
-    font-size: 2em;
+    font-size: 3em;
     margin-bottom: 0px;
 }
 
@@ -97,11 +98,14 @@ footer {
     width: 100%; /* Use full width of the container */
     padding: 0 20px; /* Add padding to the sides */
     box-sizing: border-box; /* Include padding in the element's total width */
+    margin-top: -10px; /* Use negative margin to further decrease space above the skills section */
+    margin-bottom: 60px; /* Increase space below the skills section */
 }
 
 .skills-container h2 {
     grid-column: span 2; /* Make the header span both columns */
-    margin-bottom: 20px; /* Add some space below the header */
+    margin-bottom: 10px; /* Decrease space between title and grid */
+    font-size: 2.5em;
 }
 
 .skills {
@@ -138,7 +142,28 @@ footer {
         height: auto; /* Adjust height for mobile */
         padding: 20px; /* Adjust padding for mobile */
     }
+
+    .container {
+        padding: 20px;
+    }
+
+    .project {
+        padding: 20px;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-text h1 {
+        font-size: 1.5em;
+    }
+
+    .about-text p {
+        font-size: 1em;
+    }
 }
+
 .contact {
     margin-bottom: 40px;
     border: 6px solid #fff;
@@ -171,9 +196,10 @@ footer {
 }
 
 .inverse-section {
+    padding-top: 40px;
     background-color: black;
     color: white;
-    padding: 40px 0;
+    padding: 100px 0;
 }
 
 .hero--section--title {
@@ -212,9 +238,9 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0;
-    padding: 65px 0;
+    margin-bottom: 60px; /* Increase space below the full-screen section */
 }
+
 .contact-container {
     display: grid;
     grid-template-columns: 1fr; /* Single column layout */
