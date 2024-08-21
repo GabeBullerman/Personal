@@ -51,9 +51,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to get the current year and update the footer
     function updateFooterYear() {
         const currentYear = new Date().getFullYear();
-    document.getElementById('year').textContent = currentYear;
+        document.getElementById('year').textContent = currentYear;
     }
 
     // Call the function to update the year
     updateFooterYear();
-    });
+
+    
+});
