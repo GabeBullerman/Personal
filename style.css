@@ -65,7 +65,7 @@ footer {
 .about-container {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 0px;
 }
 
 .about-text {
@@ -74,12 +74,12 @@ footer {
 
 .about-text h1 {
     font-size: 2em;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .about-text p {
     font-size: 1.2em;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .about-text p .light-text {
@@ -89,27 +89,33 @@ footer {
 
 .skills-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+    grid-template-rows: auto auto; /* 2 rows */
     column-gap: 50px;
-    row-gap: 20px;
-    text-align: center;
+    row-gap: 50px; /* Add some row gap for spacing */
+    text-align: center; /* Center-align the text */
+    width: 100%; /* Use full width of the container */
+    padding: 0 20px; /* Add padding to the sides */
+    box-sizing: border-box; /* Include padding in the element's total width */
 }
 
 .skills-container h2 {
-    grid-column: span 2;
-    margin-bottom: 20px;
+    grid-column: span 2; /* Make the header span both columns */
+    margin-bottom: 20px; /* Add some space below the header */
 }
 
 .skills {
-    padding: 40px;
+    padding: 40px; /* Increase padding for larger size */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
+    justify-content: center; /* Center content vertically */
+    width: 100%; /* Ensure it spans the full width */
+    height: 200px; /* Set a fixed height for the squares */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    border: 2px solid black; /* Add black outline */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin: 10px 0; /* Add vertical margin to prevent overlap */
 }
 
 .skill-category {
@@ -117,46 +123,22 @@ footer {
     margin-bottom: 10px;
 }
 
-/* Different colors in greyscale for each skill category */
-.skills:nth-child(2) .skill-category {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-}
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: auto; /* Adjust rows automatically */
+    }
 
-.skills:nth-child(3) .skill-category {
-    background-color: #666;
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-}
+    .skills-container h2 {
+        grid-column: span 1; /* Header spans single column */
+    }
 
-.skills:nth-child(4) .skill-category {
-    background-color: #999;
-    color: #000;
-    padding: 20px;
-    border-radius: 10px;
+    .skills {
+        height: auto; /* Adjust height for mobile */
+        padding: 20px; /* Adjust padding for mobile */
+    }
 }
-
-.skills:nth-child(5) .skill-category {
-    background-color: #ccc;
-    color: #000;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    text-align: center;
-}
-
-.contact-container h2 {
-    margin-bottom: 0px;
-}
-
 .contact {
     margin-bottom: 40px;
     border: 6px solid #fff;
@@ -166,7 +148,7 @@ footer {
     align-items: center;
     width: 100%;
     list-style: none;
-    padding: 0;
+    padding: 20px;
 }
 
 .contact li {
@@ -232,6 +214,28 @@ footer {
     justify-content: center;
     margin-bottom: 0;
     padding: 65px 0;
+}
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 20px;
+    text-align: center; /* Center-align the text */
+}
+
+.contact-container h2 {
+    margin-bottom: 0px; /* Reduce space between h2 and ul */
+}
+
+.contact {
+    margin-bottom: 40px; /* Increased space between sections */
+    border: 6px solid #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure it spans the full width */
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
 }
 
 /* Media query for mobile devices */
