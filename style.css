@@ -125,11 +125,33 @@ footer {
 .project-even-fade h3 {
     padding: 40px;
     text-align: left;
+    position: relative;
+}
+
+.project-even-fade h3::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 20px; /* Adjust this value as needed */
+    width: 1px;
+    height: 100%;
+    background-color: white;
 }
 
 .project-odd-fade h3 {
     padding: 40px;
     text-align: right;
+    position: relative;
+}
+
+.project-odd-fade h3::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px; /* Adjust this value as needed */
+    width: 1px;
+    height: 100%;
+    background-color: white;
 }
 
 .project-even-fade p, .project-odd-fade p {
