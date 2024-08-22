@@ -132,7 +132,7 @@ footer {
     text-align: right;
 }
 
-.project-even p, .project-odd p {
+.project-even-fade p, .project-odd-fade p {
     font-size: 120%;
 }
 
