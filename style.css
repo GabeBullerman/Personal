@@ -115,43 +115,69 @@ footer {
 }
 
 .skills-container {
+    width: 75%; /* Set the width to 75% of the page */
+    margin: 0 auto; /* Center the container */
+    text-align: center; /* Center-align the text within the container */
+}
+
+.skills-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 columns */
-    grid-template-rows: auto auto; /* 2 rows */
-    column-gap: 50px;
-    row-gap: 50px; /* Add some row gap for spacing */
-    text-align: center; /* Center-align the text */
-    width: 100%; /* Use full width of the container */
-    padding: 0 20px; /* Add padding to the sides */
-    box-sizing: border-box; /* Include padding in the element's total width */
-    margin-top: -10px; /* Use negative margin to further decrease space above the skills section */
-    margin-bottom: 60px; /* Increase space below the skills section */
-}
-
-.skills-container h2 {
-    grid-column: span 2; /* Make the header span both columns */
-    margin-bottom: 10px; /* Decrease space between title and grid */
-    font-size: 2.5em;
-}
-
-.skills {
-    padding: 40px; /* Increase padding for larger size */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center content vertically */
-    width: 100%; /* Ensure it spans the full width */
-    height: 200px; /* Set a fixed height for the squares */
-    border-radius: 10px; /* Optional: Add rounded corners */
-    border: 2px solid black; /* Add black outline */
+    grid-template-columns: 1fr; /* Single column */
+    grid-template-rows: repeat(4, auto); /* Four rows */
+    gap: 20px; /* Add some space between rows */
+    border: 2px solid #000; /* Add border */
+    border-radius: 15px; /* Rounded edges */
+    padding: 20px; /* Add padding inside the grid */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    margin: 10px 0; /* Add vertical margin to prevent overlap */
 }
 
 .skill-category {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    text-align: center; /* Center-align the text */
+    position: relative; /* Position relative for the divider */
 }
+
+.skill-category strong {
+    display: block; /* Make the category name a block element */
+    font-size: 1.5em; /* Slightly larger text */
+    margin-bottom: 10px; /* Add some space below the category name */
+}
+
+.skill-category::after {
+    content: "";
+    display: block;
+    width: 75%; /* Set the width of the divider */
+    height: 2px; /* Set the height of the divider */
+    background-color: #000; /* Set the color of the divider */
+    margin: 10px auto; /* Center the divider and add some space above and below */
+}
+
+.skill-category:last-child::after {
+    display: none; /* Remove the divider for the last skill category */
+}
+
+.skill-item {
+    display: inline-block; /* Display items inline */
+    margin: 10px; /* Add some space between items */
+    text-align: center; /* Center-align the text within each item */
+}
+
+.skill-item img {
+    width: 50px; /* Set a fixed width for the logos */
+    height: 50px; /* Set a fixed height for the logos */
+    display: block; /* Ensure the image is displayed as a block element */
+    margin: 0 auto; /* Center the image */
+}
+
+.skill-item p {
+    margin-top: 5px; /* Add some space between the image and the text */
+    font-size: 14px; /* Set the font size for the text */
+}
+
+.skills-container h2{
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
 
 /* Media query for mobile devices */
 @media (max-width: 768px) {
