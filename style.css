@@ -162,8 +162,8 @@ footer {
 }
 
 .skill-item img {
-    width: 50px; /* Set a fixed width for the logos */
-    height: 50px; /* Set a fixed height for the logos */
+    width: 75px; /* Set a fixed width for the logos */
+    height:75px; /* Set a fixed height for the logos */
     display: block; /* Ensure the image is displayed as a block element */
     margin: 0 auto; /* Center the image */
 }
