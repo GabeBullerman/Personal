@@ -34,8 +34,9 @@ nav li {
     text-align: center; /* Center-align the text */
     display: flex; /* Use flex layout */
     align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */]
+    justify-content: center; /* Center items horizontally */
 }
+
 nav a {
     text-decoration: none;
     color: #fff;
@@ -114,6 +115,19 @@ footer {
     font-style: italic;
 }
 
+/* Initial hidden state */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+/* Fade-in effect when the section is in view */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
 .skills-container {
     width: 75%; /* Set the width to 75% of the page */
     margin: 0 auto; /* Center the container */
@@ -138,14 +152,14 @@ footer {
 
 .skill-category strong {
     display: block; /* Make the category name a block element */
-    font-size: 1.5em; /* Slightly larger text */
+    font-size: 1.75em; /* Slightly larger text */
     margin-bottom: 10px; /* Add some space below the category name */
 }
 
 .skill-category::after {
     content: "";
     display: block;
-    width: 75%; /* Set the width of the divider */
+    width: 85%; /* Set the width of the divider */
     height: 2px; /* Set the height of the divider */
     background-color: #000; /* Set the color of the divider */
     margin: 10px auto; /* Center the divider and add some space above and below */
@@ -163,7 +177,7 @@ footer {
 
 .skill-item img {
     width: 75px; /* Set a fixed width for the logos */
-    height:75px; /* Set a fixed height for the logos */
+    height: 75px; /* Set a fixed height for the logos */
     display: block; /* Ensure the image is displayed as a block element */
     margin: 0 auto; /* Center the image */
 }
@@ -173,47 +187,9 @@ footer {
     font-size: 14px; /* Set the font size for the text */
 }
 
-.skills-container h2{
+.skills-container h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
-}
-
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-    .skills-container {
-        grid-template-columns: 1fr; /* Single column layout */
-        grid-template-rows: auto; /* Adjust rows automatically */
-    }
-
-    .skills-container h2 {
-        grid-column: span 1; /* Header spans single column */
-    }
-
-    .skills {
-        height: auto; /* Adjust height for mobile */
-        padding: 20px; /* Adjust padding for mobile */
-    }
-
-    .container {
-        padding: 20px;
-    }
-
-    .project {
-        padding: 20px;
-    }
-
-    .projects-container {
-        grid-template-columns: 1fr;
-    }
-
-    .about-text h1 {
-        font-size: 1.5em;
-    }
-
-    .about-text p {
-        font-size: 1em;
-    }
 }
 
 .contact {
@@ -225,7 +201,6 @@ footer {
     align-items: center;
     width: 100%;
     list-style: none;
-    padding: 20px;
 }
 
 .contact li {
@@ -235,7 +210,7 @@ footer {
     align-items: center;
     justify-content: center;
     width: auto;
-    margin-left: -15px;
+    margin-left: -55px;
 }
 
 .contact li i {
@@ -304,18 +279,6 @@ footer {
     margin-bottom: 0px; /* Reduce space between h2 and ul */
 }
 
-.contact {
-    margin-bottom: 40px; /* Increased space between sections */
-    border: 6px solid #fff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* Ensure it spans the full width */
-    list-style: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
-}
-
 /* Media query for mobile devices */
 @media (max-width: 768px) {
     nav ul {
@@ -329,8 +292,6 @@ footer {
     }
 
     header {
-        background-color: #000;
-        color: #fff;
         padding: 30px 0;
     }
 
@@ -345,17 +306,17 @@ footer {
     }
 
     .skills-container {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: auto; /* Adjust rows automatically */
     }
 
     .skills-container h2 {
-        grid-column: span 1;
+        grid-column: span 1; /* Header spans single column */
     }
 
     .skills {
-        height: auto;
-        padding: 20px;
+        height: auto; /* Adjust height for mobile */
+        padding: 20px; /* Adjust padding for mobile */
     }
 
     .container {
