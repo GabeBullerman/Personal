@@ -1,2 +1,2 @@
 # Personal
-Profile and Portfolio
+Portfolio
