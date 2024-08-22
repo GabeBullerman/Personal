@@ -73,5 +73,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Call the function to update the year
     updateFooterYear();
 
+    window.addEventListener('scroll', function() {
+        const backToTop = document.getElementById('back-to-top');
+        if (window.scrollY > 200) {
+            backToTop.style.display = 'block';
+        } else {
+            backToTop.style.display = 'none';
+        }
+    }, false);
+
 
 });
