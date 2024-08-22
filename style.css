@@ -34,7 +34,7 @@ nav li {
     text-align: center; /* Center-align the text */
     display: flex; /* Use flex layout */
     align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */]
+    justify-content: center; /* Center items horizontally */
 }
 nav a {
     text-decoration: none;
