@@ -13,11 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         currentText = texts[count];
 
         if (isDeleting) {
-            // Deleting characters
-            console.log('Deleting characters');
             letter = currentText.slice(0, --index);
         } else {
-            // Typing characters
             letter = currentText.slice(0, ++index);
         }
 
@@ -29,15 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (!isDeleting && letter.length === currentText.length) {
-            // Pause before starting to delete
-            console.log('Pausing before starting to delete');
             setTimeout(() => {
                 isDeleting = true;
                 type();
             }, 1000);
         } else if (isDeleting && letter.length === 0) {
-            // Pause before typing the next text
-            console.log('Pausing before typing the next text');
             isDeleting = false;
             count++;
             setTimeout(type, 500);
@@ -46,9 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    const sections = document.querySelectorAll('.fade-in-section');
-
-        const observer = new IntersectionObserver((entries, observer) => {
+    function observeElements(selector, options) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
@@ -56,31 +48,38 @@ document.addEventListener('DOMContentLoaded', function() {
                     entry.target.classList.remove('is-visible');
                 }
             });
-        }, { threshold: 0.1 });
+        }, options);
 
-        sections.forEach(section => {
-            observer.observe(section);
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            observer.observe(element);
         });
+    }
 
-    type();
-
-    // Function to get the current year and update the footer
     function updateFooterYear() {
         const currentYear = new Date().getFullYear();
         document.getElementById('year').textContent = currentYear;
     }
 
-    // Call the function to update the year
-    updateFooterYear();
-
-    window.addEventListener('scroll', function() {
+    function handleScroll() {
         const backToTop = document.getElementById('back-to-top');
         if (window.scrollY > 200) {
             backToTop.style.display = 'block';
         } else {
             backToTop.style.display = 'none';
         }
-    }, false);
+    }
 
+    // Initialize typing effect
+    type();
 
+    // Observe elements for fade-in effect
+    observeElements('.project-even-fade, .project-odd-fade', { threshold: 0.1 });
+    observeElements('.fade-in-section', { threshold: 0.1 });
+
+    // Update footer year
+    updateFooterYear();
+
+    // Handle scroll event for back-to-top button
+    window.addEventListener('scroll', handleScroll, false);
 });

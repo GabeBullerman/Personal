@@ -72,20 +72,68 @@ footer {
     padding: 40px;
 }
 
-.project {
+.project-even-fade.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.project-odd-fade.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.project-even-fade, .project-odd-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
     margin-bottom: 40px;
-    border: 6px solid #fff;
     padding: 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
+}
+
+.project-even-fade {
+    flex-direction: row; /* Align items in a row */
+    text-align: left;
+}
+
+.project-odd-fade {
+    flex-direction: row-reverse; /* Align items in a row, reverse order */
+    text-align: right;
+}
+
+.project-even img, .project-odd img {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.project-even img {
+    margin-right: 20px; /* Space between image and text */
+}
+
+.project-odd img {
+    margin-left: 20px; /* Space between image and text */
 }
 
 .projects-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+}
+
+.project-even-fade h3 {
+    padding: 40px;
+    text-align: left;
+}
+
+.project-odd-fade h3 {
+    padding: 40px;
+    text-align: right;
+}
+
+.project-even p, .project-odd p {
+    font-size: 120%;
 }
 
 .about-container {
