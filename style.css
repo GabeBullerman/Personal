@@ -434,6 +434,17 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .project-even-fade h3,
+    .project-odd-fade h3 {
+        padding: 20px;
+        text-align: center; /* Center align text for mobile */
+    }
+
+    .project-even-fade h3::after,
+    .project-odd-fade h3::after {
+        display: none; /* Hide vertical lines on mobile */
+    }
+
     .about-text h1 {
         font-size: 1.5em;
     }
