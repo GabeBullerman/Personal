@@ -454,6 +454,7 @@ footer {
     .project-odd-fade p {
         padding: 20px;
         text-align: center; /* Center align text for mobile */
+        margin-top: 20px; /* Add margin to start under the images */
     }
 
     .project-even-fade h3::after,
