@@ -450,6 +450,12 @@ footer {
         text-align: center; /* Center align text for mobile */
     }
 
+    .project-even-fade p,
+    .project-odd-fade p {
+        padding: 20px;
+        text-align: center; /* Center align text for mobile */
+    }
+
     .project-even-fade h3::after,
     .project-odd-fade h3::after {
         display: none; /* Hide vertical lines on mobile */
