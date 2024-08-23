@@ -383,7 +383,7 @@ footer {
 }
 
 /* Media query for mobile devices */
-@media (max-width: 768px) {
+@media (max-width: 980px) {
     nav ul {
         flex-direction: column;
         align-items: center;
