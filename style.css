@@ -461,6 +461,7 @@ body {
         flex-direction: column; /* Stack items vertically */
         align-items: center; /* Center items horizontally */
         width: 100%; /* Ensure full width */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
     }
 
     .project-even-fade h3,
@@ -468,6 +469,7 @@ body {
         padding: 20px;
         text-align: center; /* Center align text for mobile */
         width: 100%; /* Ensure full width */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
     }
 
     .project-even-fade p,
@@ -476,6 +478,8 @@ body {
         text-align: center; /* Center align text for mobile */
         margin-top: 20px; /* Add margin to start under the images */
         width: 100%; /* Ensure full width */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
+        word-wrap: break-word; /* Ensure text wraps correctly */
     }
 
     .project-even-fade h3::after,
