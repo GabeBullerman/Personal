@@ -387,6 +387,8 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 /* Media query for mobile devices */
@@ -396,6 +398,8 @@ body {
         align-items: center;
         display: flex; /* Switch to flex layout for mobile */
         width: 100%; /* Ensure full width */
+        padding: 0;
+        margin: 0;
     }
 
     nav li {
@@ -412,6 +416,8 @@ body {
         flex-direction: column;
         text-align: center;
         width: 100%; /* Ensure full width */
+        padding: 0;
+        margin: 0;
     }
 
     .profile-photo {
@@ -424,6 +430,8 @@ body {
         grid-template-columns: 1fr; /* Single column layout */
         grid-template-rows: auto; /* Adjust rows automatically */
         width: 100%; /* Ensure full width */
+        padding: 0;
+        margin: 0;
     }
 
     .skills-container h2 {
@@ -462,6 +470,8 @@ body {
         align-items: center; /* Center items horizontally */
         width: 100%; /* Ensure full width */
         box-sizing: border-box; /* Include padding and border in element's total width and height */
+        padding: 0;
+        margin: 0;
     }
 
     .project-even-fade h3,
