@@ -437,6 +437,13 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .project-even-fade,
+    .project-odd-fade {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
     .project-even-fade h3,
     .project-odd-fade h3 {
         padding: 20px;
