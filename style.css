@@ -243,6 +243,7 @@ footer {
     display: inline-block; /* Display items inline */
     margin: 10px; /* Add some space between items */
     text-align: center; /* Center-align the text within each item */
+    font-weight: bold;
 }
 
 .skill-item img {
@@ -250,6 +251,7 @@ footer {
     height: 75px; /* Set a fixed height for the logos */
     display: block; /* Ensure the image is displayed as a block element */
     margin: 0 auto; /* Center the image */
+    margin-bottom: 10px; /* Add some space below the image */
 }
 
 .skill-item p {
