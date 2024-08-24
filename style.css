@@ -371,6 +371,12 @@ footer {
     margin-bottom: 30px;
 }
 
+#Me h3 {
+    font-size: 2em;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
 /* Add padding to the right side of the columns to move the borders */
 #Me .column:not(:last-child) {
     border-right: 1px solid #000; /* Adjust color and thickness as needed */
