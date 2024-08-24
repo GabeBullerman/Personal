@@ -298,6 +298,7 @@ footer {
     color: white;
 }
 
+
 .inverse-section h2{
     margin-bottom: 20px;
     font-size: 2.5em;
@@ -343,51 +344,55 @@ footer {
     margin-bottom: 60px; /* Increase space below the full-screen section */
 }
 
+/* Ensure the container takes up 80% of the screen's width and is centered */
 #Me .More-on-Me {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+/* Create a grid layout for the columns */
+#Me .columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 20px; /* Adjust the gap between columns as needed */
+    margin-left: 52px;
+}
+
+/* Ensure each column takes up the full width of its grid cell */
+#Me .column {
+    max-width: 90%;
+}
+
+/* Center the "About Me" heading */
+#Me h2 {
     text-align: center;
-    padding: 20px; /* Add padding to the section */
+    font-size: 3em;
+    margin-bottom: 30px;
 }
 
-#Me .More-on-Me h2 {
-    font-size: 2em; /* Adjust the size to match the Projects title */
-    font-weight: bold; /* Assuming the Projects title is bold */
-    color: black; /* Set the text color to black */
-    margin: 20px 0; /* Adjust the margin as needed */
-    padding: 20px; /* Add padding to the top of the title */
+/* Add padding to the right side of the columns to move the borders */
+#Me .column:not(:last-child) {
+    border-right: 1px solid #000; /* Adjust color and thickness as needed */
+    height: 95%;
+    padding-right: 45px; /* Adjust the padding value as needed */
+    margin-top: 5%; /* Adjust the margin value as needed to move the element down */
 }
 
-#Me .More-on-Me .columns {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    position: relative; /* Add relative positioning for pseudo-elements */
-}
-
-#Me .More-on-Me .column {
-    flex: 0 0 25%; /* Shrink the width of the columns */
-    padding: 0 20px; /* Increase the padding to 20px */
-    position: relative; /* Add relative positioning for pseudo-elements */
-}
-
-#Me .More-on-Me .column:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 30px; /* Adjust this value to move the line down */
-    right: -80px; /* Adjust to center the line */
-    height: calc(100% - 30px); /* Adjust the height to account for the top offset */
-    border-right: 2px solid #000; /* Add a thin vertical line */
-}
-
-#Me .More-on-Me .column:nth-child(1) {
+/* Align text in each column differently */
+#Me .column:nth-child(1) {
     text-align: left; /* Align text to the left for the first column */
+    line-height: 1.5; /* Add extra space between words */
 }
 
-#Me .More-on-Me .column:nth-child(2) {
+#Me .column:nth-child(2) {
     text-align: center; /* Align text to the center for the second column */
+    line-height: 1.5; /* Add extra space between words */
 }
 
-#Me .More-on-Me .column:nth-child(3) {
+#Me .column:nth-child(3) {
     text-align: right; /* Align text to the right for the third column */
+    line-height: 1.5; /* Add extra space between words */
 }
 
 .contact-container {
@@ -428,13 +433,6 @@ footer {
     background-color: #000;
     color: #fff;
 }
-
-
-
-
-/* Everything below this line is for mobile devices css and is a work in progress */
-
-
 
 /* Media query for mobile devices */
 @media (max-width: 768px) {
