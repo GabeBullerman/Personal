@@ -1,5 +1,5 @@
-html, body {
-    overflow: hidden;
+html{
+    overflow-x: hidden;
 }
 /* General Styles */
 body {
