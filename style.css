@@ -529,6 +529,25 @@ img {
         margin-bottom: 20px; /* Add space between paragraphs */
         border-bottom: none; /* Remove lines after paragraphs */
     }
+    #Me .column:nth-child(1) {
+        text-align: center; /* Align text to the left for the first column */
+        line-height: 1.5; /* Add extra space between words */
+    }
+    
+    #Me .column:nth-child(2) {
+        text-align: center; /* Align text to the center for the second column */
+        line-height: 1.5; /* Add extra space between words */
+    }
+    
+    #Me .column:nth-child(3) {
+        text-align: center; /* Align text to the right for the third column */
+        line-height: 1.5; /* Add extra space between words */
+    }
+
+    #Me .column:not(:last-child) {
+        border-right: 0px solid #fff; /* Adjust color and thickness as needed */
+    }
+    
 }
 
 /*
