@@ -188,6 +188,38 @@ footer {
     font-style: italic;
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+    #Me .columns {
+        display: block; /* Stack columns vertically */
+    }
+
+    #Me .column {
+        border-right: none; /* Remove border on mobile */
+        padding-right: 0; /* Remove padding on mobile */
+        margin-bottom: 20px; /* Add space between sections */
+    }
+
+    #Me .column h3 {
+        margin-bottom: 10px; /* Add space between title and paragraph */
+    }
+
+    #Me .column p {
+        margin-bottom: 20px; /* Add space between paragraphs */
+    }
+
+    .about-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+        padding: 0 15px; /* Add padding to prevent overflow */
+    }
+
+    .about-text {
+        width: 100%; /* Ensure full width */
+        max-width: none; /* Remove max-width constraint */
+    }
+}
+
 /* Initial hidden state */
 .fade-in-section {
     opacity: 0;
