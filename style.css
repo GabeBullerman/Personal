@@ -518,6 +518,7 @@ img {
         border-right: none; /* Remove border on mobile */
         padding-right: 0; /* Remove padding on mobile */
         margin-bottom: 20px; /* Add space between sections */
+        text-align: center; /* Center align text for mobile */
     }
 
     #Me .column h3 {
@@ -526,6 +527,7 @@ img {
 
     #Me .column p {
         margin-bottom: 20px; /* Add space between paragraphs */
+        border-bottom: none; /* Remove lines after paragraphs */
     }
 }
 
