@@ -156,9 +156,6 @@ img {
 /*
 =============================================================== Skills Section ==========================================================================
 */
-/*
-=============================================================== Skills Section ==========================================================================
-*/
 .skills-container {
     width: 75%;
     margin: 0 auto;
@@ -423,6 +420,13 @@ img {
 }
 
 /* Hero Section */
+.hero--section--title span {
+    display: inline-block;
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+}
 .hero--section--title {
     font-size: 2em;
     color: black;
