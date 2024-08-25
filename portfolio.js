@@ -82,4 +82,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle scroll event for back-to-top button
     window.addEventListener('scroll', handleScroll, false);
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        window.innerWidth = width;
+        window.innerHeight = height;
+        if (window.innerWidth > 768) {
+            document.querySelector('.nav--menu').style.display = 'block';
+        } else {
+            document.querySelector('.nav--menu').style.display = 'none';
+        }
+    });
+
 });
