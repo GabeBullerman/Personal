@@ -1,3 +1,6 @@
+html, body {
+    overflow: hidden;
+}
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
