@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Observe elements for fade-in effect
     observeElements('.project-even-fade, .project-odd-fade', { threshold: 0.1 });
     observeElements('.fade-in-section', { threshold: 0.1 });
+    observeElements('.skill-category, .skill-item', { threshold: 0.1 }); // Added for skills section
 
     // Update footer year
     updateFooterYear();
