@@ -74,6 +74,7 @@ nav a:hover {
     }
 
     nav li {
+        padding-top: 20px; /* Add space above the text */
         margin: 10px 0;
     }
 
@@ -97,6 +98,53 @@ img {
     align-items: center;
     justify-content: center;
     margin-bottom: 60px; /* Increase space below the full-screen section */
+}
+
+/* Hero Section */
+.hero--section--title span {
+    display: inline-block;
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+}
+
+/* Hero Section */
+.hero--section--title {
+    font-size: 2em;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .hero--section--title {
+        font-size: 1.25em; /* Reduce font size for mobile */
+    }
+}
+
+.typed-cursor--blink {
+    font-weight: 100;
+    font-size: 1.25em;
+    color: black;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Profile Photo */
+.profile-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-right: 80px;
+    border: 4px solid #000;
+    object-fit: cover;
 }
 
 /*
@@ -417,52 +465,6 @@ img {
     margin-bottom: 20px;
     font-size: 2.5em;
     text-align: center;
-}
-
-/* Hero Section */
-.hero--section--title span {
-    display: inline-block;
-    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis if text overflows */
-}
-/* Hero Section */
-.hero--section--title {
-    font-size: 2em;
-    color: black;
-}
-
-@media (max-width: 768px) {
-    .hero--section--title {
-        font-size: 1.5em; /* Reduce font size for mobile */
-    }
-}
-
-.typed-cursor--blink {
-    font-weight: 100;
-    font-size: 1.25em;
-    color: black;
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-}
-
-/* Profile Photo */
-.profile-photo {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    margin-right: 80px;
-    border: 4px solid #000;
-    object-fit: cover;
 }
 
 /*
