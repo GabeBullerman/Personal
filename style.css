@@ -427,9 +427,16 @@ img {
     overflow: hidden; /* Hide overflow */
     text-overflow: ellipsis; /* Add ellipsis if text overflows */
 }
+/* Hero Section */
 .hero--section--title {
     font-size: 2em;
     color: black;
+}
+
+@media (max-width: 768px) {
+    .hero--section--title {
+        font-size: 1.8em; /* Reduce font size by 10% */
+    }
 }
 
 .typed-cursor--blink {
