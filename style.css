@@ -73,8 +73,11 @@ nav a:hover {
         display: flex; /* Switch to flex layout for mobile */
     }
 
+    nav li:first-child {
+        padding-top: 10px; /* Add space above the first item */
+    }
+
     nav li {
-        padding-top: 10px; /* Add space above the text */
         margin: 10px 0;
     }
 
