@@ -104,6 +104,7 @@ function getWeather() {
     const city = document.getElementById('city').value;
 
     if (!city) {
+        displayMessage('Please enter a city');
         return;
     }
 
@@ -117,6 +118,7 @@ function getWeather() {
         })
         .catch((error) => {
             console.log('Error:', error);
+            displayMessage('An error occurred. Please try again');
         });
 
     fetch(forecastUrl)
@@ -126,6 +128,7 @@ function getWeather() {
         })
         .catch((error) => {
             console.log('Error:', error);
+            displayMessage('An error occurred. Please try again');
         });
 }
 
@@ -142,6 +145,7 @@ function getWeatherByLocation(lat, lon) {
         })
         .catch((error) => {
             console.log('Error:', error);
+            displayMessage('An error occurred. Please try again');
         });
 
     fetch(forecastUrl)
@@ -151,6 +155,7 @@ function getWeatherByLocation(lat, lon) {
         })
         .catch((error) => {
             console.log('Error:', error);
+            displayMessage('An error occurred. Please try again');
         });
 }
 
@@ -166,19 +171,22 @@ function displayWeather(data) {
     tempDivInfo.innerHTML = '';
 
     if (data.cod === '404') {
-        weatherDivInfo.innerHTML = `<p>${data.message}</p>`;
+        displayMessage(data.message);
     } else {
         const cityName = data.name;
         const temperature = Math.round((data.main.temp - 273.15) * 9/5 + 32);
         const description = data.weather[0].description;
+        const timeZoneOffset = data.timezone; // Timezone offset in seconds
+        const timeZoneName = moment.tz.zone(moment.tz.guess()).abbr(timeZoneOffset); // Get timezone name from offset
         const iconCode = data.weather[0].icon;
         const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@4x.png`;
 
         const temperatureHTML = `<p>${temperature}°F</p>`;
         const weatherHTML = `<p>${cityName}</p> <p>${description}</p>`;
+        const timeZoneHTML = `<p class="time-zone">Time Zone: ${timeZoneName}</p>`;
 
         tempDivInfo.innerHTML = temperatureHTML;
-        weatherDivInfo.innerHTML = weatherHTML;
+        weatherDivInfo.innerHTML = weatherHTML + timeZoneHTML;
         weatherIcon.src = iconUrl;
         weatherIcon.alt = description;
 
@@ -193,15 +201,14 @@ function displayHourlyForecast(hourlyData) {
     hourlyForecast.innerHTML = '';
 
     next24Hours.forEach((hour) => {
-        const date = new Date(hour.dt * 1000);
-        const time = date.getHours();
+        const date = moment.unix(hour.dt).utcOffset(hourlyData.city.timezone / 3600).format('h:mm A');
         const temperature = Math.round((hour.main.temp - 273.15) * 9/5 + 32);
         const iconCode = hour.weather[0].icon;
         const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
 
         const hourlyHTML = `
             <div class="hourly-item">
-                <span>${time}:00</span>
+                <span>${date}</span>
                 <img src="${iconUrl}" alt="This Hour's Weather Icon">
                 <span>${temperature}°F</span>
             </div>`;
@@ -224,9 +231,17 @@ function detectLocation() {
             },
             (error) => {
                 console.log('Error:', error);
+                displayMessage('Location access not permitted. Please check browser settings or enter the city manually.');
             }
-        );{
+        );
+    } else {
+        displayMessage('Geolocation is not supported by this browser. Please enter the city manually.');
     }
+}
+
+function displayMessage(message) {
+    const weatherDivInfo = document.getElementById('info');
+    weatherDivInfo.innerHTML = `<p>${message}</p>`;
 }
 
 // Call detectLocation on page load

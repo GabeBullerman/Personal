@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel Bullerman</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="portfolio.js" defer></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gabriel Bullerman</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
+        <script src="portfolio.js" defer></script>
+    </head>
 <body>
     <!-------------------------------------------------- Navigation --------------------------------------------------------------------->
     <header>
@@ -231,13 +233,16 @@
     <footer>
         <div class="container">
             <p id="footer-year">&copy; <span id="year"></span> Gabriel Bullerman</p>
-            <a href="#" id="weather-toggle">How's the weather?</a>
+            <a href="#" id="weather-toggle">
+                <span id="weather-toggle-text">How's the weather?</span>
+            </a>
         </div>
     </footer>
+
     <section id="Weather-App" class="box" style="display: none;">
         <div id="Weather-Container">
             <h2>Weather Report</h2>
-            <input type="text" id="city" placeholder="Enter City Name">
+            <input type="text" id="city" placeholder="Enter City or State Name">
             <button onclick="getWeather()">Search</button>
             <img id="weather-icon" alt="Weather Icon">
             <div id="temp"></div>
@@ -253,19 +258,21 @@
             </svg>
         </a>
     </div>
-    
+
     <script src="portfolio.js"></script>
     <script>
         document.getElementById('weather-toggle').addEventListener('click', function(event) {
             event.preventDefault();
             var weatherApp = document.getElementById('Weather-App');
-            var weatherToggle = document.getElementById('weather-toggle');
+            var weatherToggleText = document.getElementById('weather-toggle-text');
+
             if (weatherApp.style.display === 'none' || weatherApp.style.display === '') {
                 weatherApp.style.display = 'block';
-                weatherToggle.style.display = 'none';
+                weatherToggleText.textContent = 'Close weather';
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             } else {
                 weatherApp.style.display = 'none';
-                weatherToggle.style.display = 'block';
+                weatherToggleText.textContent = "How's the weather?";
             }
         });
     </script>

@@ -617,13 +617,21 @@ img {
     background: #ccc;
 }
 
-#temp-div p {
-    font-size: 60px;
+#temp{
+    font-size: 40px;
     margin-top: -30px;
+    font-weight: bold;
 }
 
 #info {
-    font-size: 20px;
+    font-size: 30px;
+}
+
+.time-zone {
+    font-size: 12px;
+    color: #fff;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 #weather-icon {
@@ -664,6 +672,12 @@ img {
     color: #fff;
     margin-top: 10px;
 }
+
+.time-zone {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
 
 /*
 =============================================================== Contact Section ==========================================================================
