@@ -238,7 +238,7 @@
             </a>
         </div>
     </footer>
-
+    
     <section id="Weather-App" class="box" style="display: none;">
         <div id="Weather-Container">
             <h2>Weather Report</h2>
@@ -250,7 +250,7 @@
             <div id="hourly"></div>
         </div>
     </section>
-
+    
     <div id="back-to-top">
         <a href="#top">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -258,23 +258,35 @@
             </svg>
         </a>
     </div>
-
+    
     <script src="portfolio.js"></script>
     <script>
-        document.getElementById('weather-toggle').addEventListener('click', function(event) {
-            event.preventDefault();
-            var weatherApp = document.getElementById('Weather-App');
-            var weatherToggleText = document.getElementById('weather-toggle-text');
-
-            if (weatherApp.style.display === 'none' || weatherApp.style.display === '') {
-                weatherApp.style.display = 'block';
-                weatherToggleText.textContent = 'Close weather';
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        function isMobileDevice() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            if (isMobileDevice()) {
+                // Remove weather section and toggle link on mobile devices
+                document.getElementById('Weather-App').remove();
+                document.getElementById('weather-toggle').remove();
             } else {
-                weatherApp.style.display = 'none';
-                weatherToggleText.textContent = "How's the weather?";
+                document.getElementById('weather-toggle').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var weatherApp = document.getElementById('Weather-App');
+                    var weatherToggleText = document.getElementById('weather-toggle-text');
+    
+                    if (weatherApp.style.display === 'none' || weatherApp.style.display === '') {
+                        weatherApp.style.display = 'block';
+                        weatherToggleText.textContent = 'Close weather';
+                        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                    } else {
+                        weatherApp.style.display = 'none';
+                        weatherToggleText.textContent = "How's the weather?";
+                    }
+                });
             }
         });
     </script>
-</body>
-</html>
+    </body>
+    </html>

@@ -70,6 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function isMobileDevice() {
+        return /Mobi|Android/i.test(navigator.userAgent);
+    }
+
     // Initialize typing effect
     type();
 
@@ -96,7 +100,13 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.nav--menu').style.display = 'none';
         }
     });
+
+    // Call detectLocation on page load if not on a mobile device
+    if (!isMobileDevice()) {
+        detectLocation();
+    }
 });
+
 // =============================================================== Weather API functions ===============================================================
 
 function getWeather() {
@@ -243,6 +253,3 @@ function displayMessage(message) {
     const weatherDivInfo = document.getElementById('info');
     weatherDivInfo.innerHTML = `<p>${message}</p>`;
 }
-
-// Call detectLocation on page load
-detectLocation();
