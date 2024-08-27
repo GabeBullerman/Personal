@@ -96,5 +96,146 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.nav--menu').style.display = 'none';
         }
     });
-
 });
+// =============================================================== Weather API functions ===============================================================
+
+function getWeather() {
+    const apiKEY = 'ccc77da2843f090af56ca0d76395f929';
+    const city = document.getElementById('city').value;
+
+    if (!city) {
+        alert('Please enter a city');
+        return;
+    }
+
+    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKEY}`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKEY}`;
+
+    fetch(currentWeatherUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            displayWeather(data);
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+            alert('An error occurred. Please try again');
+        });
+
+    fetch(forecastUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            displayHourlyForecast(data);
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+            alert('An error occurred. Please try again');
+        });
+}
+
+function getWeatherByLocation(lat, lon) {
+    const apiKEY = 'ccc77da2843f090af56ca0d76395f929';
+
+    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKEY}`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKEY}`;
+
+    fetch(currentWeatherUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            displayWeather(data);
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+            alert('An error occurred. Please try again');
+        });
+
+    fetch(forecastUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            displayHourlyForecast(data);
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+            alert('An error occurred. Please try again');
+        });
+}
+
+function displayWeather(data) {
+    const tempDivInfo = document.getElementById('temp');
+    const weatherDivInfo = document.getElementById('info');
+    const weatherIcon = document.getElementById('weather-icon');
+    const hourlyForecast = document.getElementById('hourly');
+
+    // Clear Previous Data
+    weatherDivInfo.innerHTML = '';
+    hourlyForecast.innerHTML = '';
+    tempDivInfo.innerHTML = '';
+
+    if (data.cod === '404') {
+        weatherDivInfo.innerHTML = `<p>${data.message}</p>`;
+    } else {
+        const cityName = data.name;
+        const temperature = Math.round((data.main.temp - 273.15) * 9/5 + 32);
+        const description = data.weather[0].description;
+        const iconCode = data.weather[0].icon;
+        const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@4x.png`;
+
+        const temperatureHTML = `<p>${temperature}°F</p>`;
+        const weatherHTML = `<p>${cityName}</p> <p>${description}</p>`;
+
+        tempDivInfo.innerHTML = temperatureHTML;
+        weatherDivInfo.innerHTML = weatherHTML;
+        weatherIcon.src = iconUrl;
+        weatherIcon.alt = description;
+
+        showImage();
+    }
+}
+
+function displayHourlyForecast(hourlyData) {
+    const hourlyForecast = document.getElementById('hourly');
+    const next24Hours = hourlyData.list.slice(0, 8);
+
+    hourlyForecast.innerHTML = '';
+
+    next24Hours.forEach((hour) => {
+        const date = new Date(hour.dt * 1000);
+        const time = date.getHours();
+        const temperature = Math.round((hour.main.temp - 273.15) * 9/5 + 32);
+        const iconCode = hour.weather[0].icon;
+        const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+
+        const hourlyHTML = `
+            <div class="hourly-item">
+                <span>${time}:00</span>
+                <img src="${iconUrl}" alt="This Hour's Weather Icon">
+                <span>${temperature}°F</span>
+            </div>`;
+        hourlyForecast.innerHTML += hourlyHTML;
+    });
+}
+
+function showImage() {
+    const weatherIcon = document.getElementById('weather-icon');
+    weatherIcon.style.display = 'block';
+}
+
+function detectLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                getWeatherByLocation(lat, lon);
+            },
+            (error) => {
+                console.log('Error:', error);
+                alert('Location access denied. Please enter the city manually.');
+            }
+        );
+    } else {
+        alert('Geolocation is not supported by this browser. Please enter the city manually.');
+    }
+}
+
+// Call detectLocation on page load
+detectLocation();

@@ -6,8 +6,10 @@
     <title>Gabriel Bullerman</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="portfolio.js" defer></script>
 </head>
 <body>
+    <!-------------------------------------------------- Navigation --------------------------------------------------------------------->
     <header>
         <nav>
             <ul>
@@ -18,6 +20,7 @@
         </nav>
     </header>
 
+    <!-------------------------------------------------- My Info --------------------------------------------------------------------->
     <section id="About-Me" class="full-screen-section">
         <div class="container about-container">
             <img src="./me.jpg" alt="Profile Photo" class="profile-photo">
@@ -32,6 +35,7 @@
         </div>
     </section>
     
+    <!-------------------------------------------------- Skills --------------------------------------------------------------------->
     <section id="Skills" class="full-screen-section">
         <div class="container skills-container">
             <h2>Technical Skills</h2>
@@ -168,6 +172,8 @@
         </div>
     </section>
 
+
+    <!-------------------------------------------------- Projects --------------------------------------------------------------------->
     <section id="Projects" class="inverse-section">
         <div class="container">
             <h2>Projects</h2>
@@ -189,7 +195,8 @@
         </div>
     </section>
 
-    <section id="Me" class="box">
+    <!-------------------------------------------------- More on Me --------------------------------------------------------------------->
+    <section id="Me" class="inve">
         <div class="More-on-Me">
             <h2>More on Me</h2>
             <div class="columns">
@@ -209,6 +216,7 @@
         </div>
     </section>
 
+    <!-------------------------------------------------- Contact --------------------------------------------------------------------->
     <section id="Contact" class="box">
         <div class="container contact-container">
             <h2>Contact</h2>
@@ -220,13 +228,24 @@
         </div>
     </section>
     
-    <script src="portfolio.js"></script>
-    
     <footer>
         <div class="container">
             <p id="footer-year">&copy; <span id="year"></span> Gabriel Bullerman</p>
+            <a href="#" id="weather-toggle">How's the weather?</a>
         </div>
     </footer>
+    <section id="Weather-App" class="box" style="display: none;">
+        <div id="Weather-Container">
+            <h2>Weather Report</h2>
+            <input type="text" id="city" placeholder="Enter City Name">
+            <button onclick="getWeather()">Search</button>
+            <img id="weather-icon" alt="Weather Icon">
+            <div id="temp"></div>
+            <div id="info"></div>
+            <div id="hourly"></div>
+        </div>
+    </section>
+
     <div id="back-to-top">
         <a href="#top">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -234,5 +253,21 @@
             </svg>
         </a>
     </div>
-    </body>
-    </html>
+    
+    <script src="portfolio.js"></script>
+    <script>
+        document.getElementById('weather-toggle').addEventListener('click', function(event) {
+            event.preventDefault();
+            var weatherApp = document.getElementById('Weather-App');
+            var weatherToggle = document.getElementById('weather-toggle');
+            if (weatherApp.style.display === 'none' || weatherApp.style.display === '') {
+                weatherApp.style.display = 'block';
+                weatherToggle.style.display = 'none';
+            } else {
+                weatherApp.style.display = 'none';
+                weatherToggle.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

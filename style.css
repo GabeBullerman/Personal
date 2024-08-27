@@ -564,6 +564,108 @@ img {
 }
 
 /*
+=============================================================== Weather Section ==========================================================================
+*/
+
+/* Weather App Styles */
+#Weather-App {
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+}
+
+#Weather-Container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid #fff;
+}
+
+#Weather-Container h2, #Weather-Container label, #Weather-Container p {
+    color: #fff;
+    margin: 8px 0;
+    text-transform: capitalize;
+}
+
+#Weather-Container input {
+    width: calc(100% - 16px);
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+#Weather-Container button {
+    background: #fff;
+    color: #000;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100px;
+    font-size: 15px;
+}
+
+#Weather-Container button:hover {
+    background: #ccc;
+}
+
+#temp-div p {
+    font-size: 60px;
+    margin-top: -30px;
+}
+
+#info {
+    font-size: 20px;
+}
+
+#weather-icon {
+    width: 200px;
+    height: 200px;
+    margin: 0px auto 10px;
+    margin-bottom: 0px;
+    display: none;
+}
+
+#hourly {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.hourly-item {
+    flex: 0 0 auto;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.hourly-item img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#hourly-heading {
+    color: #fff;
+    margin-top: 10px;
+}
+
+/*
 =============================================================== Contact Section ==========================================================================
 */
 .contact-container {
