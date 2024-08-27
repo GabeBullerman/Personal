@@ -104,7 +104,6 @@ function getWeather() {
     const city = document.getElementById('city').value;
 
     if (!city) {
-        alert('Please enter a city');
         return;
     }
 
@@ -118,7 +117,6 @@ function getWeather() {
         })
         .catch((error) => {
             console.log('Error:', error);
-            alert('An error occurred. Please try again');
         });
 
     fetch(forecastUrl)
@@ -128,7 +126,6 @@ function getWeather() {
         })
         .catch((error) => {
             console.log('Error:', error);
-            alert('An error occurred. Please try again');
         });
 }
 
@@ -145,7 +142,6 @@ function getWeatherByLocation(lat, lon) {
         })
         .catch((error) => {
             console.log('Error:', error);
-            alert('An error occurred. Please try again');
         });
 
     fetch(forecastUrl)
@@ -155,7 +151,6 @@ function getWeatherByLocation(lat, lon) {
         })
         .catch((error) => {
             console.log('Error:', error);
-            alert('An error occurred. Please try again');
         });
 }
 
@@ -229,11 +224,8 @@ function detectLocation() {
             },
             (error) => {
                 console.log('Error:', error);
-                alert('Location access denied. Please enter the city manually.');
             }
-        );
-    } else {
-        alert('Geolocation is not supported by this browser. Please enter the city manually.');
+        );{
     }
 }
 
