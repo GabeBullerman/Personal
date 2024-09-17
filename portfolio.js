@@ -70,6 +70,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function handleToggleClick() {
+        const is3D = confirm("Switch to 3D mode?");
+        if (is3D) {
+            window.location.href = 'https://scrolling-animation-nine.vercel.app'; // Redirect to the sample 3D page
+        }
+    }
+
     // Initialize typing effect
     type();
 
@@ -82,4 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle scroll event for back-to-top button
     window.addEventListener('scroll', handleScroll, false);
+
+    // Handle toggle button click
+    document.getElementById('toggle-2d-3d').addEventListener('click', handleToggleClick);
 });
