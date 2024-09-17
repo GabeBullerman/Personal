@@ -106,6 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.nav--menu').style.display = 'none';
         }
     });
+
+    
 // =============================================================== Weather API functions ===============================================================
 
 function getWeather() {
@@ -255,3 +257,5 @@ function displayMessage(message) {
 
 // Call detectLocation on page load
 detectLocation();
+
+
