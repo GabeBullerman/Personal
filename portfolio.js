@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Observe elements for fade-in effect
     observeElements('.project-even-fade, .project-odd-fade', { threshold: 0.1 });
     observeElements('.fade-in-section', { threshold: 0.1 });
+    observeElements('.skill-category, .skill-item', { threshold: 0.1 }); // Added for skills section
 
     // Update footer year
     updateFooterYear();
@@ -93,3 +94,164 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle toggle button click
     document.getElementById('toggle-2d-3d').addEventListener('click', handleToggleClick);
 });
+    // Handle resize
+    window.addEventListener('resize', () => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        window.innerWidth = width;
+        window.innerHeight = height;
+        if (window.innerWidth > 768) {
+            document.querySelector('.nav--menu').style.display = 'block';
+        } else {
+            document.querySelector('.nav--menu').style.display = 'none';
+        }
+    });
+// =============================================================== Weather API functions ===============================================================
+
+function getWeather() {
+    const apiKEY = 'ccc77da2843f090af56ca0d76395f929';
+    const city = document.getElementById('city').value;
+
+    if (!city) {
+        displayMessage('Please enter a city');
+        return;
+    }
+
+    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKEY}`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKEY}`;
+
+    fetch(currentWeatherUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            displayWeather(data);
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+            displayMessage('An error occurred. Please try again');
+        });
+
+    fetch(forecastUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            displayHourlyForecast(data);
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+            displayMessage('An error occurred. Please try again');
+        });
+}
+
+function getWeatherByLocation(lat, lon) {
+    const apiKEY = 'ccc77da2843f090af56ca0d76395f929';
+
+    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKEY}`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKEY}`;
+
+    fetch(currentWeatherUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            displayWeather(data);
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+            displayMessage('An error occurred. Please try again');
+        });
+
+    fetch(forecastUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            displayHourlyForecast(data);
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+            displayMessage('An error occurred. Please try again');
+        });
+}
+
+function displayWeather(data) {
+    const tempDivInfo = document.getElementById('temp');
+    const weatherDivInfo = document.getElementById('info');
+    const weatherIcon = document.getElementById('weather-icon');
+    const hourlyForecast = document.getElementById('hourly');
+
+    // Clear Previous Data
+    weatherDivInfo.innerHTML = '';
+    hourlyForecast.innerHTML = '';
+    tempDivInfo.innerHTML = '';
+
+    if (data.cod === '404') {
+        displayMessage(data.message);
+    } else {
+        const cityName = data.name;
+        const temperature = Math.round((data.main.temp - 273.15) * 9/5 + 32);
+        const description = data.weather[0].description;
+        const timeZoneOffset = data.timezone; // Timezone offset in seconds
+        const timeZoneName = moment.tz.zone(moment.tz.guess()).abbr(timeZoneOffset); // Get timezone name from offset
+        const iconCode = data.weather[0].icon;
+        const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@4x.png`;
+
+        const temperatureHTML = `<p>${temperature}°F</p>`;
+        const weatherHTML = `<p>${cityName}</p> <p>${description}</p>`;
+        const timeZoneHTML = `<p class="time-zone">Time Zone: ${timeZoneName}</p>`;
+
+        tempDivInfo.innerHTML = temperatureHTML;
+        weatherDivInfo.innerHTML = weatherHTML + timeZoneHTML;
+        weatherIcon.src = iconUrl;
+        weatherIcon.alt = description;
+
+        showImage();
+    }
+}
+
+function displayHourlyForecast(hourlyData) {
+    const hourlyForecast = document.getElementById('hourly');
+    const next24Hours = hourlyData.list.slice(0, 8);
+
+    hourlyForecast.innerHTML = '';
+
+    next24Hours.forEach((hour) => {
+        const date = moment.unix(hour.dt).utcOffset(hourlyData.city.timezone / 3600).format('h:mm A');
+        const temperature = Math.round((hour.main.temp - 273.15) * 9/5 + 32);
+        const iconCode = hour.weather[0].icon;
+        const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+
+        const hourlyHTML = `
+            <div class="hourly-item">
+                <span>${date}</span>
+                <img src="${iconUrl}" alt="This Hour's Weather Icon">
+                <span>${temperature}°F</span>
+            </div>`;
+        hourlyForecast.innerHTML += hourlyHTML;
+    });
+}
+
+function showImage() {
+    const weatherIcon = document.getElementById('weather-icon');
+    weatherIcon.style.display = 'block';
+}
+
+function detectLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                getWeatherByLocation(lat, lon);
+            },
+            (error) => {
+                console.log('Error:', error);
+                displayMessage('Location access not permitted. Please check browser settings or enter the city manually.');
+            }
+        );
+    } else {
+        displayMessage('Geolocation is not supported by this browser. Please enter the city manually.');
+    }
+}
+
+function displayMessage(message) {
+    const weatherDivInfo = document.getElementById('info');
+    weatherDivInfo.innerHTML = `<p>${message}</p>`;
+}
+
+// Call detectLocation on page load
+detectLocation();
