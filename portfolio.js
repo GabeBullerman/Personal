@@ -93,21 +93,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Handle toggle button click
     document.getElementById('toggle-2d-3d').addEventListener('click', handleToggleClick);
-});
-    // Handle resize
-    window.addEventListener('resize', () => {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        window.innerWidth = width;
-        window.innerHeight = height;
-        if (window.innerWidth > 768) {
-            document.querySelector('.nav--menu').style.display = 'block';
-        } else {
-            document.querySelector('.nav--menu').style.display = 'none';
-        }
-    });
 
-    
+    // Handle "How's the Weather" button click
+    document.getElementById('weather-button').addEventListener('click', detectLocation);
+});
+
 // =============================================================== Weather API functions ===============================================================
 
 function getWeather() {
@@ -254,8 +244,3 @@ function displayMessage(message) {
     const weatherDivInfo = document.getElementById('info');
     weatherDivInfo.innerHTML = `<p>${message}</p>`;
 }
-
-// Call detectLocation on page load
-detectLocation();
-
-
