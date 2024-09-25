@@ -110,7 +110,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 60px; /* Increase space below the full-screen section */
+    margin-bottom: 20px; /* Increase space below the full-screen section */
 }
 
 /* Hero Section */
@@ -168,7 +168,7 @@ img {
     align-items: center;
     gap: 0px;
     margin-bottom: -30px; /* Use negative margin to further decrease space below the about section */
-    margin-top: 30px; /* Increase space above the about section */
+    padding-top: 40px; /* Increase space above the about section */
 }
 
 .about-text {
@@ -224,6 +224,7 @@ img {
     opacity: 1; /* Ensure container is visible */
     transform: translateY(20px); /* Start slightly below */
     transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Smooth transition */
+    padding-bottom: 50px;
 }
 
 .skills-container.is-visible {
@@ -331,7 +332,7 @@ img {
     transform: translateY(20px);
     transition: opacity 2s ease-out, transform 2s ease-out;
     margin-bottom: 40px;
-    padding: 20px;
+    /* padding: 20px; */
     display: flex;
     align-items: center;
 }
@@ -469,7 +470,8 @@ img {
 
 /* Inverse Section */
 .inverse-section {
-    padding-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 20px;
     background-color: black;
     color: white;
 }
@@ -480,13 +482,108 @@ img {
     text-align: center;
 }
 
+/* 
+=============================================================== Certifications ============================================================================
+*/
+.certs {
+    display: grid;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.certs-container {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 1; /* Ensure container is visible */
+    transform: translateY(20px); /* Start slightly below */
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Smooth transition */
+    padding: 0px;
+    padding-bottom: 40px;
+}
+
+.certs-container.is-visible {
+    opacity: 1; /* Fade in */
+    transform: none; /* Move to original position */
+}
+
+.certs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    gap: 20px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.certs-category {
+    text-align: center;
+    position: relative;
+    opacity: 0; /* Hide initially */
+    transition: opacity 1.25s ease-in-out; /* Slow down fade-in effect */
+}
+
+
+.certs-category strong {
+    display: block;
+    font-size: 1.75em;
+    margin-bottom: 10px;
+}
+
+.certs-category::after {
+    content: "";
+    display: block;
+    width: 85%;
+    height: 2px;
+    background-color: #000;
+    margin: 10px auto;
+}
+
+.certs-category:last-child::after {
+    display: none;
+}
+
+.certs-item {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0; /* Hide initially */
+    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+}
+
+.certs-item img{
+    width: 150px;
+    height: 150px;
+}
+
+.certs-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.certs-category.is-visible, .certs-item.is-visible {
+    opacity: 1; /* Fade in when the 'is-visible' class is added */
+}
+
+
 /*
 =============================================================== About Me Section ==========================================================================
 */
 #Me .More-on-Me {
-    width: 90%;
+
+    width: 100%;
     margin: 0 auto;
     padding-top: 30px;
+    background-color: #000;
+    background-size: 100%;
+    padding-bottom: 20px;
+}
+
+#Me p {
+    color: #fff;
 }
 
 #Me .columns {
@@ -504,16 +601,18 @@ img {
     text-align: center;
     font-size: 3em;
     margin-bottom: 30px;
+    color: #fff;
 }
 
 #Me h3 {
     font-size: 2em;
     margin-bottom: 0px;
     margin-top: 0px;
+    color: #fff;
 }
 
 #Me .column:not(:last-child) {
-    border-right: 1px solid #000; /* Adjust color and thickness as needed */
+    border-right: 1px solid #fff; /* Adjust color and thickness as needed */
     height: 95%;
     padding-right: 45px; /* Adjust the padding value as needed */
     margin-top: 5%; /* Adjust the margin value as needed to move the element down */
@@ -571,7 +670,7 @@ img {
     }
 
     #Me .column:not(:last-child) {
-        border-right: 0px solid #fff; /* Adjust color and thickness as needed */
+        border-right: 0px solid #000; /* Adjust color and thickness as needed */
     }
     
 }
@@ -696,6 +795,7 @@ img {
 =============================================================== Contact Section ==========================================================================
 */
 .contact-container {
+    padding: 20px;
     display: grid;
     grid-template-columns: 1fr; /* Single column layout */
     gap: 20px;
@@ -736,7 +836,7 @@ img {
 */
 footer {
     text-align: center;
-    padding: 0px;
+    padding-bottom: 40px;
     background-color: #fff;
     color: #000;
 }
@@ -745,5 +845,4 @@ footer {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px;
 }

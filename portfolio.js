@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     observeElements('.project-even-fade, .project-odd-fade', { threshold: 0.1 });
     observeElements('.fade-in-section', { threshold: 0.1 });
     observeElements('.skill-category, .skill-item', { threshold: 0.1 }); // Added for skills section
+    observeElements('.certs-category, .certs-item', { threshold: 0.1 }); // Added for certs section
 
     // Update footer year
     updateFooterYear();
